@@ -19,12 +19,12 @@ function findTournamentWinner(competitions, results) {
   const winner = Object.entries(mapTeamResults)
     .reduce((currentBestTeam, [team, result]) => {
       if (currentBestTeam.result < result) {
-        currentBestTeam = { team, result };
+        currentBestTeam = { teamName, result };
       }
       return currentBestTeam;
-    }, { team: '', result: 0} )
+    }, { teamName: '', result: 0} )
 
-  return winner.team
+  return winner.teamName
 }
 
 //// TESTS

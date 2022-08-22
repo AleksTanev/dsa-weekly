@@ -1,35 +1,59 @@
 function findMinimumNonConstructibleChange(arrayOfCoins) {
 
-  // let mapOfCoins = [];
-  let change = 1;
+  // const buildBSTFromArr = (arrayOfCoins, start = 0, end = arrayOfCoins.length - 1) => {
 
-  // while (i < arrayOfCoins.length) {
-  //   if (mapOfCoins[arrayOfCoins[i]]) {
-  //     mapOfCoins[arrayOfCoins[i]] += 1;
-  //   } else {
-  //     mapOfCoins[arrayOfCoins[i]] = 1
+  //   if (start === end) {
+  //     return;
   //   }
 
-  //   i++;
+
+
   // }
-  // // console.log(mapOfCoins)
 
-  let isChangePossible = true
-
-  while (isChangePossible) {
-    isChangePossible = checkIfChangeIsPossible(change, arrayOfCoins);
-    change++;
+  if (arrayOfCoins.length < 1) {
+    return [];
   }
 
-  return change-1;
+
+
+  let index = 0;
+  let root = newNode(arrayOfCoins[index++])
+
+  while (index < arrayOfCoins.length) {
+    const node = newNode(arrayOfCoins[index]);
+
+    buildBST(root, node);
+    index++;
+  }
+
+  return root;
 }
 
-function checkIfChangeIsPossible(value, array) {
-  if (array.includes(value)) {
-    return true;
+const newNode = (value) => {
+
+  return {
+    value,
+    left: null,
+    right: null
   }
 }
 
+const buildBST = (root, newNode) => {
+
+  if (!root.left && root.value && root.value > newNode.value) {
+    root.left = newNode;
+    return;
+  }
+
+  if (!root.right && root.value && root.value <= newNode.value) {
+    root.right = newNode;
+    return;
+  }
+
+  if (root.value > newNode.value) buildBST(root.left, newNode)
+  if (root.value <= newNode.value) buildBST(root.right, newNode)
+
+}
 
 //// TESTS
 const coins = [5, 7, 1, 1, 2, 3, 22];

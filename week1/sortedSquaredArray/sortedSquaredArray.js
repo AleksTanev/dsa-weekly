@@ -1,21 +1,23 @@
 function sortArraySquared (array) {
 
   return array
-    .reduce((acc, val) => {
+    .reduce((stackAndSorted, val) => {
+      const stack = stackAndSorted.stack;
+      const sortedArr = stackAndSorted.sortedArr;
 
       if (val < 0) {
-        acc.stack.push(Math.abs(val));
-      } else if (val > acc.stack[acc.stack.length -1]) {
-        const negativeAdded = acc.stack.pop();
-        acc.sorted.push(Math.pow(negativeAdded,2));
-        acc.sorted.push(Math.pow(val, 2));
+        stack.push(Math.abs(val));
+      } else if (val > stack[stack.length -1]) {
+        const valueToInsert = stack.pop();
+        sortedArr.push(Math.pow(valueToInsert,2));
+        sortedArr.push(Math.pow(val, 2));
       } else {
-        acc.sorted.push(Math.pow(val,2));
+        sortedArr.push(Math.pow(val,2));
       }
 
-      return acc;
-    }, { stack: [], sorted: []})
-    .sorted;
+      return stackAndSorted;
+    }, { stack: [], sortedArr: []})
+    .sortedArr;
 };
 
 //// TESTS

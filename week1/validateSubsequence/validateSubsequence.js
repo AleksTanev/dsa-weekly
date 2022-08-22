@@ -6,11 +6,10 @@ function isValidSubsequence (array, sequence) {
   while (i < array.length) {
 
     if (array[i] == sequence[k]) {
-      i++;
       k++;
-    } else {
-      i++;
     }
+    
+    i++;
 
     if (k == sequence.length) {
       return true

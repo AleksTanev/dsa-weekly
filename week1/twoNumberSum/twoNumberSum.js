@@ -1,19 +1,16 @@
 function findSumTwoNumbers (array, targetSum) {
-  const mapNumbers = [];
-  let i = 0;
 
-  while (i < array.length) {
-    let difference = targetSum - array[i];
+  return array.reduce((mapAndDoublet, number) => {
+    const difference = targetSum - number;
+    const mapNumbers = mapAndDoublet.mapNumbers;
 
-    if (mapNumbers[difference]) return [difference, array[i]];
-    
-    mapNumbers[array[i]] = array[i];
-    i++;
-  }
+    if (mapNumbers[difference]) mapAndDoublet.doublet = [difference, number];
+    mapNumbers[number] = number;
 
-  return [];
-}
-
+    return mapAndDoublet;
+  }, { doublet: [], mapNumbers: {} })
+  .doublet;
+};
 
 /// TESTS
 
@@ -22,3 +19,17 @@ const target = 10;
 
 console.log(findSumTwoNumbers(array, target));
 
+  // const mapNumbers = [];
+  // let i = 0;
+
+//   while (i < array.length) {
+//     const difference = targetSum - array[i];
+
+//     if (mapNumbers[difference]) return [difference, array[i]];
+    
+//     mapNumbers[array[i]] = array[i];
+//     i++;
+//   }
+
+//   return [];
+// }

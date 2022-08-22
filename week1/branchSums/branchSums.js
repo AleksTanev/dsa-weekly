@@ -1,23 +1,56 @@
-function getSumOfBranches(root, memo, sumSoFar = 0) {
+function getSumsOfBranches(root, sumsArr = [], currentSum = 0) {
 
-  if (!root.left && !root.right) {
-    memo.push(sumSoFar + root.value);
-    return;
+  if (!root.left && !root.right && root.value) {
+    sumsArr.push(currentSum + root.value);
+
+    return sumsArr;
   }
 
   if (root.left) {
-    getSumOfBranches(root.left, memo, sumSoFar + root.value);
+    getSumsOfBranches(root.left, sumsArr, currentSum + root.value);
   }
   if (root.right) {
-    getSumOfBranches(root.right, memo, sumSoFar + root.value);
+    getSumsOfBranches(root.right, sumsArr, currentSum + root.value);
   }
 
-  return memo;
+  return sumsArr;
 }
 
-
 //// TESTS
+console.log('Starting getSumOfBranches testing...');
+{
+  console.log("### Tests ###");
+  const root = { value: 1, left: {value: 12, left: { value: 2 }, right: { value: 8} }, right: { value: 2, left: {value: 2}, right: { value: 4 } } }
+  const result = getSumsOfBranches(root);
+  const expected = [15,21,5,7];
+  
+  console.log(result.length === expected.length && result.every((value, index) => value === expected[index]) ? 'Pass' : 'Fail');
+}
+{
+  const root = { value: 1 }
+  const result = getSumsOfBranches(root);
+  const expected = [1];
+  
+  console.log(result.length === expected.length && result.every((value, index) => value === expected[index]) ? 'Pass' : 'Fail');
+}
+{
+  const root = { value: 1, left: {value: 12, left: { value: 2 }, right: { value: 8} }, right: { value: 2, left: {value: 2}, right: { value: 4 } } }
+  const result = getSumsOfBranches(root);
+  const expected = [15,21,5,7];
+  
+  console.log(result.length === expected.length && result.every((value, index) => value === expected[index]) ? 'Pass' : 'Fail');
+}
+{
+  const root = { value: 1, left: {value: 12, left: { value: 2 }, right: { value: 8, right: { value: 1}} }, right: { value: 2, left: {value: 2}, right: { value: 4 } } }
+  result = getSumsOfBranches(root);
+  const expected =[15, 22, 5, 7];
 
-const root = { value: 1, left: {value: 12, left: { value: 2 }, right: { value: 8} }, right: { value: 2, left: {value: 2}, right: { value: 4 } } }
+  console.log(result.length === expected.length && result.every((value, index) => value === expected[index]) ? 'Pass' : 'Fail');
+}
+{
+  const root = {}
+  const result = getSumsOfBranches(root);
+  const expected =[];
 
-console.log(getSumOfBranches(root, []))
+  console.log(result.length === expected.length && result.every((value, index) => value === expected[index]) ? 'Pass' : 'Fail');
+}
