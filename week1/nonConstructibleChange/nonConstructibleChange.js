@@ -1,4 +1,4 @@
-async function findMinimumNonConstructibleChange(arrayOfCoins) {
+function findMinimumNonConstructibleChange(arrayOfCoins) {
 
   const sortedArr = arrayOfCoins.sort((a,b) => a-b);
 
@@ -41,5 +41,11 @@ async function findMinimumNonConstructibleChange(arrayOfCoins) {
 {
   const coins = [];
   const expected = 1
+  console.log(findMinimumNonConstructibleChange(coins));
+};
+
+{
+  const coins = [1,2,3,4];
+  const expected = 11
   console.log(findMinimumNonConstructibleChange(coins));
 };
