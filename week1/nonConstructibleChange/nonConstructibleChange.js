@@ -2,18 +2,18 @@ function findMinimumNonConstructibleChange(arrayOfCoins) {
 
   const sortedArr = arrayOfCoins.sort((a,b) => a-b);
 
-  let i = 0;
-  if (sortedArr[i] !== 1) {
+  let index = 0;
+  if (sortedArr[index] !== 1) {
     return 1;
   }
 
   let sum = 0;
-  while (i < sortedArr.length) {
-    if (sortedArr[i] > sum + 1) {
+  while (index < sortedArr.length) {
+    if (sortedArr[index] > sum + 1) {
       return sum + 1;
     }
-    sum += sortedArr[i]
-    i++;
+    sum += sortedArr[index]
+    index++;
   }
 
   return sum + 1;

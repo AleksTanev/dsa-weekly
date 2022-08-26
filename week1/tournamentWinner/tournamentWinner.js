@@ -1,35 +1,28 @@
 
 function findTournamentWinner(competitions, results) {  
-  const mapTeamResults = {};
-  const length = competitions.length;
-  let i = 0;
+  const mapTeamResults = competitions.reduce((map, [homeTeam, awayTeam], i) => {
+    const roundWinner = (results[i] === 1) ? homeTeam : awayTeam;
 
-  while (i < length) {
-    let roundWinner = '';
-    
-    if (results[i] === 1) {
-      roundWinner = competitions[i][0];
-    } else {
-      roundWinner = competitions[i][1];
-    }
-    mapTeamResults[roundWinner] = (mapTeamResults[roundWinner] || 0) + 1;
-    i++;
-  }
+    map[roundWinner] = (map[roundWinner] || 0) + 1;
+
+    return map;
+  }, {})
 
   const winner = Object.entries(mapTeamResults)
-    .reduce((currentBestTeam, [team, result]) => {
+    .reduce((currentBestTeam, [teamName, result]) => {
       if (currentBestTeam.result < result) {
         currentBestTeam = { teamName, result };
       }
+      
       return currentBestTeam;
     }, { teamName: '', result: 0} )
 
-  return winner.teamName
+  return winner.teamName;
 }
 
 //// TESTS
-
-const competitions = [["pirates", "poopies"], ["poopies", "pepes"], ["pepes", "pirates"]];
-const results = [1,0,0];
-
-console.log(findTournamentWinner(competitions,results))
+{
+  const competitions = [["pirates", "poopies"], ["poopies", "pepes"], ["pepes", "pirates"]];
+  const results = [1,0,0]; 
+  console.log(findTournamentWinner(competitions,results))
+}

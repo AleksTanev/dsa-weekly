@@ -1,19 +1,19 @@
 function isValidSubsequence (array, sequence) {
 
-  let i = 0;
-  let k = 0; 
+  let arrayIndex = 0;
+  let sequenceIndex = 0; 
 
-  while (i < array.length) {
+  while (arrayIndex < array.length) {
 
-    if (array[i] == sequence[k]) {
-      k++;
+    if (sequenceIndex == sequence.length) {
+      return true;
+    }
+
+    if (array[arrayIndex] == sequence[sequenceIndex]) {
+      sequenceIndex++;
     }
     
-    i++;
-
-    if (k == sequence.length) {
-      return true
-    }
+    arrayIndex++;
   }
 
   return false;
@@ -21,18 +21,28 @@ function isValidSubsequence (array, sequence) {
 
 //// TESTS
 
-const array = [5, 1, 22, 25, 6, -1, 8, 10];
-const sequence = [1, 6, -1,9];
+console.log("Starting tests:")
 
-console.log(isValidSubsequence(array,sequence))
+{
+  const array = [5, 1, 22, 25, 6, -1, 8, 10];
+  const sequence = [1, 6, -1,9];
+  const expected = false;
+  const result = isValidSubsequence(array,sequence);
+  console.log((result === expected) ? 'passed' : "failed");
+}
 
+{
+  const array = [1];
+  const sequence = [1];
+  const expected = true;
+  const result = isValidSubsequence(array,sequence);
+  console.log((result === expected) ? 'passed' : "failed");
+}
 
-    // if (i > sequence.length - k) {
-    //   return false
-    // }
-
-    // if (array[i] == sequence[k]) {
-    //   k++;
-    // } else if (array[i] != sequence[k]) {
-
-    // }
+{
+  const array = [];
+  const sequence = [];
+  const expected = true;
+  const result = isValidSubsequence(array,sequence);
+  console.log((result === expected) ? 'passed' : "failed");
+}

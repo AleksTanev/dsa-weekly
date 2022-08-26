@@ -21,11 +21,12 @@ function sortArraySquared (array) {
 };
 
 //// TESTS
+{
+  const array = [1, 2, 3, 5, 6, 8, 9]; 
+  console.log(sortArraySquared(array));
+}
 
-const array = [1, 2, 3, 5, 6, 8, 9];
-
-console.log(sortArraySquared(array));
-
-const array2 = [-3,-1, 0, 2,5];
-
-console.log(sortArraySquared(array2));
+{
+  const array2 = [-3,-1, 0, 2,5]; 
+  console.log(sortArraySquared(array2));
+}
