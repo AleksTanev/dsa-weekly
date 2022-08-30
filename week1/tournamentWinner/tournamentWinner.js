@@ -6,7 +6,7 @@ function findTournamentWinner(competitions, results) {
     map[roundWinner] = (map[roundWinner] || 0) + 1;
 
     return map;
-  }, {})
+  }, {});
 
   const winner = Object.entries(mapTeamResults)
     .reduce((currentBestTeam, [teamName, result]) => {
@@ -15,7 +15,7 @@ function findTournamentWinner(competitions, results) {
       }
       
       return currentBestTeam;
-    }, { teamName: '', result: 0} )
+    }, { teamName: '', result: 0} );
 
   return winner.teamName;
 }

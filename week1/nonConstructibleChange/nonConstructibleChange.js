@@ -12,7 +12,7 @@ function findMinimumNonConstructibleChange(arrayOfCoins) {
     if (sortedArr[index] > sum + 1) {
       return sum + 1;
     }
-    sum += sortedArr[index]
+    sum += sortedArr[index];
     index++;
   }
 
@@ -22,30 +22,30 @@ function findMinimumNonConstructibleChange(arrayOfCoins) {
 //// TESTS
 {
   const coins = [5, 7, 1, 1, 2, 3, 22];
-  const expected = 20
+  const expected = 20;
   console.log(findMinimumNonConstructibleChange(coins));
 };
 
 {
   const coins = [1, 1, 4, 22];
-  const expected = 3
+  const expected = 3;
   console.log(findMinimumNonConstructibleChange(coins));
 };
 
 {
   const coins = [1, 4];
-  const expected = 2
+  const expected = 2;
   console.log(findMinimumNonConstructibleChange(coins));
 };
 
 {
   const coins = [];
-  const expected = 1
+  const expected = 1;
   console.log(findMinimumNonConstructibleChange(coins));
 };
 
 {
   const coins = [1,2,3,4];
-  const expected = 11
+  const expected = 11;
   console.log(findMinimumNonConstructibleChange(coins));
 };

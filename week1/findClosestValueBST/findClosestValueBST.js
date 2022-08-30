@@ -5,7 +5,7 @@ function findClosestValueInBST(root, target) {
 
   while (currentNode) {
 
-    const currentValue = currentNode.value
+    const currentValue = currentNode.value;
 
     if (Math.abs(currentValue - target) < Math.abs(closestValue - target)) closestValue = currentValue;
 

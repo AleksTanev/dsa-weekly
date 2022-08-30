@@ -1,19 +1,24 @@
-function getSumsOfBranches(root, sumsArr = [], currentSum = 0) {
+function getSumsOfBranches(root) {
 
-  if (!root.left && !root.right && root.value) {
-    sumsArr.push(currentSum + root.value);
+  const helper = (root, sumsArr = [], currentSum = 0) => {
+    if (!root.left && !root.right && root.value) {
+      sumsArr.push(currentSum + root.value);
+
+      return sumsArr;
+    }
+
+    if (root.left) {
+      helper(root.left, sumsArr, currentSum + root.value);
+    }
+
+    if (root.right) {
+      helper(root.right, sumsArr, currentSum + root.value);
+    }
 
     return sumsArr;
   }
 
-  if (root.left) {
-    getSumsOfBranches(root.left, sumsArr, currentSum + root.value);
-  }
-  if (root.right) {
-    getSumsOfBranches(root.right, sumsArr, currentSum + root.value);
-  }
-
-  return sumsArr;
+  return helper(root);
 }
 
 //// TESTS
@@ -42,7 +47,7 @@ console.log('Starting getSumOfBranches testing...');
 }
 {
   const root = { value: 1, left: {value: 12, left: { value: 2 }, right: { value: 8, right: { value: 1}} }, right: { value: 2, left: {value: 2}, right: { value: 4 } } }
-  result = getSumsOfBranches(root);
+  const result = getSumsOfBranches(root);
   const expected =[15, 22, 5, 7];
 
   console.log(result.length === expected.length && result.every((value, index) => value === expected[index]) ? 'Pass' : 'Fail');
