@@ -10,18 +10,18 @@ const validateBST = (root) => {
     return false;
   }
 
-  let resRight = true;
-  let resLeft = true;
+  let isValidRight = true;
+  let isValidLeft = true;
 
   if (root.right) {
-    resRight = validateBST(root.right);
+    isValidRight = validateBST(root.right);
   }
 
   if (root.left) {
-    resLeft = validateBST(root.left);
+    isValidLeft = validateBST(root.left);
   }
 
-  return (!resLeft || !resRight) ? false : true;
+  return (isValidLeft && isValidRight) ? true : false;
 
 } 
 
