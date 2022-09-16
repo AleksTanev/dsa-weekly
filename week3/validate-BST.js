@@ -1,6 +1,6 @@
 const validateBST = (root) => {
 
-  if (!root.left && !root.right) {
+  if (!root.value || (!root.left && !root.right)) {
     
     return true;
   }
@@ -10,19 +10,11 @@ const validateBST = (root) => {
     return false;
   }
 
-  let isValidRight = true;
-  let isValidLeft = true;
+  let isValidRight = validateBST(root.right);
 
-  if (root.right) {
-    isValidRight = validateBST(root.right);
-  }
-
-  if (root.left) {
-    isValidLeft = validateBST(root.left);
-  }
+  let isValidLeft = validateBST(root.left);
 
   return (isValidLeft && isValidRight) ? true : false;
-
 } 
 
 {
