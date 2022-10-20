@@ -21,7 +21,7 @@ function isValidSubsequence (array, sequence) {
 
 //// TESTS
 
-console.log("Starting tests:")
+console.log("Starting tests:");
 
 {
   const array = [5, 1, 22, 25, 6, -1, 8, 10];
