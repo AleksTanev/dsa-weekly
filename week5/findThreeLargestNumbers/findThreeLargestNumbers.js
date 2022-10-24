@@ -1,11 +1,12 @@
 const findThreeLargestNumbers = (array) => {
 
   const sortedArray = [];
-  let currLargestNumber;
-  let currLargestIndex;
   let mapOfIndexes = {};
 
   while (sortedArray.length < 3) {
+    let currLargestNumber;
+    let currLargestIndex;
+
     for (let i = 0; i < array.length; i++) {
     
       if (!mapOfIndexes[i] && (array[i] >= currLargestNumber || !currLargestNumber)) {
@@ -16,8 +17,6 @@ const findThreeLargestNumbers = (array) => {
       if (i === array.length - 1) {
         addNumberToOutputArray(currLargestNumber, sortedArray);
         mapOfIndexes[currLargestIndex] = true;
-        currLargestNumber = undefined;
-        currLargestIndex = undefined;
       }
     };
   };
