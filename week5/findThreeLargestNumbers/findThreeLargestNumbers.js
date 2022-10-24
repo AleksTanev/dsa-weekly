@@ -1,7 +1,7 @@
 const findThreeLargestNumbers = (array) => {
 
   const sortedArray = [];
-  let mapOfIndexes = {};
+  const mapOfIndexes = {};
 
   while (sortedArray.length < 3) {
     let currLargestNumber;
