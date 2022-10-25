@@ -15,7 +15,7 @@ const findThreeLargestNumbers = (array) => {
       }
     
       if (i === array.length - 1) {
-        addNumberToOutputArray(currLargestNumber, sortedArray);
+        addNumberToSortedArray(currLargestNumber, sortedArray);
         mapOfIndexes[currLargestIndex] = true;
       }
     };
@@ -24,7 +24,7 @@ const findThreeLargestNumbers = (array) => {
   return sortedArray;
 }
 
-const addNumberToOutputArray = (number, array) => {
+const addNumberToSortedArray = (number, array) => {
   if (!array.length || number >= array[array.length-1]) array.push(number)
   else array.unshift(number)
 }
