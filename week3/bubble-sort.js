@@ -1,10 +1,9 @@
 const bubbleSort = (array) => {
 
-  let index = 0;
   let sorted = true;
   let passes = 1;
 
-  while (index + 1 < array.length) {
+  for (let index = 0; index + 1 < array.length; index++) {
 
     if (array[index] > array[index+1]) {
 
@@ -12,18 +11,14 @@ const bubbleSort = (array) => {
       sorted = false;
     }
 
-    if (index+1 === array.length -1) {
+    if (index+1 === array.length - 1) {
 
       if (sorted) return passes;
 
       sorted = true;
       index = 0;
       passes++;
-
-    } else {
-
-      index++;
-    }
+    } 
   }
 };
 
@@ -45,15 +40,14 @@ const bubbleSort2 = (array) => {
 }
 
 // const isItSorted = (array) => {
-//   let sorted = true;
 //   let i = 0;
 //   while (i < array.length) {
 //     if (array[i] > array[i+1]) {
-//       sorted = false;
+//        return false;
 //     }
 //     i++;
 //   }
-//   return sorted;
+//   return true;
 // }
 
 {
