@@ -13,20 +13,14 @@ const findThreeLargestNumbers = (array) => {
         currLargestNumber = array[i];
         currLargestIndex = i;
       }
-      
     };
 
-    addNumberToSortedArray(currLargestNumber, sortedArray);
+    sortedArray.unshift(currLargestNumber);
     mapOfIndexes[currLargestIndex] = true;
   };
 
   return sortedArray;
-}
-
-const addNumberToSortedArray = (number, array) => {
-  if (!array.length || number >= array[array.length-1]) array.push(number)
-  else array.unshift(number)
-}
+};
 
 {
   const array = [141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7];
