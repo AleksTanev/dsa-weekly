@@ -6,14 +6,14 @@ const checkIfPhotoIsPossible = (redShirtsHeights, blueShirtsHeights) => {
   const isRedHigher = redShirtsHeights[0] > blueShirtsHeights[0] ? true : false;
   const arrayLength = blueShirtsHeights.length;
 
+  if (!arrayLength) return false; 
+
   for (let i = 0; i < arrayLength; i++) {
     if (redShirtsHeights[i] < blueShirtsHeights[i] && isRedHigher) return false;
     if (redShirtsHeights[i] >= blueShirtsHeights[i] && !isRedHigher) return false;
-    if (i === arrayLength-1 && isRedHigher) return `true => place red on the back row`;
-    if (i === arrayLength-1 && !isRedHigher) return `true => place blue on the back row`;
   }
-
-  return false;
+  
+  return isRedHigher ? `true => place red on the back row` : `true => place blue on the back row`
 }
 
 {
