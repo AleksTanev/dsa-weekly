@@ -8,17 +8,16 @@ const findThreeLargestNumbers = (array) => {
     let currLargestIndex;
 
     for (let i = 0; i < array.length; i++) {
-    
+
       if (!mapOfIndexes[i] && (array[i] >= currLargestNumber || !currLargestNumber)) {
         currLargestNumber = array[i];
         currLargestIndex = i;
       }
-    
-      if (i === array.length - 1) {
-        addNumberToSortedArray(currLargestNumber, sortedArray);
-        mapOfIndexes[currLargestIndex] = true;
-      }
+      
     };
+
+    addNumberToSortedArray(currLargestNumber, sortedArray);
+    mapOfIndexes[currLargestIndex] = true;
   };
 
   return sortedArray;
