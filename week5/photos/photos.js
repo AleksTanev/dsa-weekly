@@ -3,23 +3,18 @@ const checkIfPhotoIsPossible = (redShirtsHeights, blueShirtsHeights) => {
   redShirtsHeights.sort();
   blueShirtsHeights.sort();
 
-  if (redShirtsHeights[0] > blueShirtsHeights[0]) {
-    for (let i = 0; i < redShirtsHeights.length; i++) {
-      if (redShirtsHeights[i] <= blueShirtsHeights[i]) return false;
-    }
+  const greaterHeightColor = redShirtsHeights[0] > blueShirtsHeights[0] ? "red" : "blue";
+  const arrayLength = blueShirtsHeights.length;
 
-    return `true => place redshirts on the back row`;
+  for (let i = 0; i < arrayLength; i++) {
+    if (redShirtsHeights[i] < blueShirtsHeights[i] && greaterHeightColor === "red") return false;
+    if (redShirtsHeights[i] >= blueShirtsHeights[i] && greaterHeightColor === "blue") return false;
 
-  } else if (redShirtsHeights[0] < blueShirtsHeights[0]) {
-    for (let i = 0; i < redShirtsHeights.length; i++) {
-      if (redShirtsHeights[i] >= blueShirtsHeights[i]) return false;
-    }
-
-    return `true => place blueshirts on the back row`;
-
-  } else {
-    return false;
+    if (i === arrayLength-1 && greaterHeightColor === "red") return `true => place redshirts on the back row`;
+    if (i === arrayLength-1 && greaterHeightColor === "blue") return `true => place blueshirts on the back row`;
   }
+
+  return false;
 }
 
 {
