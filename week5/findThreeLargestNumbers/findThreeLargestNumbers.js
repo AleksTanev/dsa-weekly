@@ -27,15 +27,15 @@ const findThreeLargestNumbers = (array) => {
 
   const res = findThreeLargestNumbers(array);
 
-  console.log(res)
+  console.log(res);
 }
 
 {
-  const array = [7,7,7];
+  const array = [7, 7, 7];
 
   const res = findThreeLargestNumbers(array);
 
-  console.log(res)
+  console.log(res);
 }
 
 {
@@ -43,7 +43,7 @@ const findThreeLargestNumbers = (array) => {
 
   const res = findThreeLargestNumbers(array);
 
-  console.log(res)
+  console.log(res);
 }
 
 {
@@ -51,7 +51,7 @@ const findThreeLargestNumbers = (array) => {
 
   const res = findThreeLargestNumbers(array);
 
-  console.log(res)
+  console.log(res);
 }
 
 {
@@ -59,7 +59,7 @@ const findThreeLargestNumbers = (array) => {
 
   const res = findThreeLargestNumbers(array);
 
-  console.log(res)
+  console.log(res);
 }
 
 {
@@ -67,7 +67,7 @@ const findThreeLargestNumbers = (array) => {
 
   const res = findThreeLargestNumbers(array);
 
-  console.log(res)
+  console.log(res);
 }
 
 {
@@ -75,5 +75,5 @@ const findThreeLargestNumbers = (array) => {
 
   const res = findThreeLargestNumbers(array);
 
-  console.log(res)
+  console.log(res);
 }

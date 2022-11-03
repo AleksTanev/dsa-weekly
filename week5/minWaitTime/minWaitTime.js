@@ -14,7 +14,7 @@ const minimumWaitingTime = (queries) => {
 };
 
 {
-  const queries = [1, 2, 2, 3]
+  const queries = [1, 2, 2, 3];
 
-  console.log(minimumWaitingTime(queries))
+  console.log(minimumWaitingTime(queries));
 }
